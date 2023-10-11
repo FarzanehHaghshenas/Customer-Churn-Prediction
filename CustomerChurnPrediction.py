@@ -248,10 +248,12 @@ except:
 # Geography one-hot encoding
 predictors[['France', 'Germany', 'Spain']] = pd.get_dummies(predictors['Geography'])
 print("here",predictors)
-# Removal of unused columns.
+
+# Removing unused columns
 predictors = predictors.drop(['Gender','Geography','Spain'], axis = 1)
 print("there",predictors)
 
+# Normalization 
 normalization = lambda x:(x-x.min()) / (x.max()-x.min())
 transformColumns = predictors[["Balance","EstimatedSalary","CreditScore"]]
 predictors[["Balance","EstimatedSalary","CreditScore"]] = normalization(transformColumns)
