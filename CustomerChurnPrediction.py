@@ -239,6 +239,7 @@ plt.show()
 predictors = df.iloc[:,0:10]
 target = df.iloc[:,10:]
 
+#mapping
 try:
     predictors['isMale'] = predictors['Gender'].map({'Male':1, 'Female':0})
 except:
